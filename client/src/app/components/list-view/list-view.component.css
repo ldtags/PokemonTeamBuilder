@@ -1,0 +1,37 @@
+.tableFixHead          { overflow: auto; height: 65vh; }
+.tableFixHead thead th { position: sticky; top: 0; }
+.tableFixHead tbody th { position: sticky; left: 0; }
+
+/* Just common table stuff. Really. */
+table  { border-collapse: collapse; width: 100%; margin: 0; }
+th, td { padding: 8px 16px; }
+th     { background:#eee; }
+
+select {
+    text-align-last:center;
+}
+
+form {
+    width: 80%;
+}
+
+.filter-form {
+    height: 65vh;
+}
+
+.prev-btn, .next-btn {
+    color:aliceblue;
+}
+
+#list-page {
+    background-image: url("../../../assets/images/surfichu.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #6FB4E1;
+    max-height: 100%;
+    max-width: 100%;
+    height: 100%;
+    width: 100%;
+}

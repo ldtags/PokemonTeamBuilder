@@ -1,0 +1,15 @@
+.grey {
+    background: #555555;
+    background: linear-gradient(to bottom, #555555 0%, #464646 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #555555), color-stop(100%, #464646));
+    background: -webkit-linear-gradient(top, #555555 0%, #464646 100%);
+    background: -moz-linear-gradient(top, #555555 0%, #464646 100%);
+    background: -o-linear-gradient(top, #555555 0%, #464646 100%);
+    background: -ms-linear-gradient(top, #555555 0%, #464646 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#555555', endColorstr='#464646', GradientType=0);
+    border: 1px solid #373737;
+    box-shadow: inset 0 1px 0 #646464;
+    -webkit-box-shadow: inset 0 1px 0 #646464;
+    -moz-box-shadow: inset 0 1px 0 #646464;
+    z-index: 2;
+}

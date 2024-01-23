@@ -1,0 +1,56 @@
+<div class="container d-flex inline-flex" id="list-page">
+    <app-pokemon-list [pokemon]="pokemon" (idEmitter)="selectPokemon( $event )"
+                      style="width: 60vw" class="m-3"></app-pokemon-list>
+    
+    <div class="col m-3 mh-75 align-self-center filter-form">
+        <form class="flex-fill d-flex justify-content-center flex-column m-3 p-3 py-4 border rounded bg-white shadow">
+    
+            <div class="d-flex inline-flex align-items-center">
+                <label for="name" class="m-2">Name: </label>
+                <input type="text" class="form-control m-2 w-75" placeholder="Bulbasaur" id="name" name="name"
+                       [(ngModel)]="name" />
+            </div>
+
+            <div class="d-flex inline-flex align-items-center">
+                <label for="originGen" class="m-2">Origin Gen: </label>
+                <!-- TODO: update this text element to a select element -->
+                <input type="text" class="form-control m-2 w-25" placeholder="1 - 9" id="originGen" name="originGen"
+                       [(ngModel)]="originGen" />
+            </div>
+    
+            <div class="d-flex inline-flex align-items-center">
+                <label for="type-input" class="m-2">Type: </label>
+                <select id="type-select"
+                            class="form-control border rounded-pill m-2 w-25"
+                            name="type"
+                            [(ngModel)]="type"
+                            (ngModelChange)="setType( $event )">
+    
+                    <option value="undefined" selected>
+                        <span>Any</span>
+                    </option>
+                    <option *ngFor="let type of types"
+                            [ngValue]="type">
+                        {{ formatName( type ) }}
+                    </option>
+    
+                </select>
+            </div>
+            
+            <div class="d-flex inline-flex justify-content-center">
+                <button type="submit"
+                        (click)="filterPokemon()"
+                        class="btn btn-primary btn-sm py-2 px-3 mt-3 mx-2 shadow-sm"
+                        id="create-btn">
+                    Filter Pok&eacute;mon
+                </button>
+                <button type="submit"
+                        (click)="resetPokemon()"
+                        class="btn btn-warning btn-sm py-2 px-3 mt-3 mx-2 shadow-sm"
+                        id="create-btn">
+                    Reset
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

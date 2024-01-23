@@ -1,0 +1,25 @@
+#navbar {
+    background-color: #f8ef42;
+    background-image: linear-gradient(315deg, #f8ef42 0%, #0fd64f 74%);
+
+    cursor: default;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #fff1f1;
+}
+
+@media all and (min-width: 992px) {
+	.navbar .nav-item .dropdown-menu{ display: none; }
+	.navbar .nav-item:hover .dropdown-menu{ display: block; }
+	.navbar .nav-item .dropdown-menu{ margin-top: 0; margin-right: 2; }
+}
+
+#title-text {
+    font-weight: 700;
+    text-decoration: none;
+}
+
+#nav-container {
+    position: absolute;
+    right: 0;
+    margin-right: 3em;
+}

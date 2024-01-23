@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="tableFixHead bg-white m-3 rounded">
+                <table class="table table-bordered table-striped">
+                    <thead class="bg-light shadow" id="table-head">
+                        <tr class="border">
+                            <th>Users</th>
+                        </tr>
+                    </thead>
+                    <tbody class="h-100 bg-white">
+                        <tr *ngFor="let user of users" class="list-row" (click)="selectUser( user )" >
+                            <td>{{ user.username }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-4">
+            <form class="m-3 p-3 bg-white rounded shadow w-100">
+                <input type="text" class="form-control m-3 w-75 row" disabled
+                       placeholder="{{selectedUser ? selectedUser.username : 'username' }}" />
+                <input type="text" class="form-control mt-3 mx-3 w-75 row" placeholder="new password"
+                       [(ngModel)]="password" name="password" />
+
+                <button type="submit"
+                        (click)="updateUser()"
+                        [disabled]="selectedUser == undefined"
+                        class="btn btn-primary btn-sm py-2 px-3 mt-3 mx-2 shadow-sm"
+                        id="create-btn">
+                    Update User
+                </button>
+            </form>
+            <div class="d-flex justify-content-center align-items-center">
+                <app-team-display [team]="userTeam" class="m-3" ></app-team-display>
+            </div>
+        </div>
+    </div>
+</div>

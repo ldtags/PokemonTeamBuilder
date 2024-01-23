@@ -1,0 +1,80 @@
+<div class="container h-100">
+    <div class="row h-100" *ngIf="pokemon != undefined">
+        <div class="col-7 d-flex justify-content-center flex-wrap">
+            <div class="col-sm-6 d-flex justify-content-center align-items-center">
+                <div class="m-3 bg-white rounded shadow sprite-display"
+                     style="background-image: url( ../../../assets/images/pokemans.jpg ); background-size: cover;">
+                     <div class="h-100 w-100" style="background-image: url( {{pokemon.sprites.front_default}} ); background-size: cover; background-position: center;">
+                     </div>
+                </div>
+            </div>
+            <div class="m-3 rounded">
+                <div class="tableFixHead bg-white">
+                    <table class="table table-bordered table-striped">
+                        <thead class="bg-light shadow" id="table-head">
+                            <tr class="border">
+                                <th>Moves</th>
+                                <th>Level Required</th>
+                            </tr>
+                        </thead>
+                        <tbody class="h-100 bg-white">
+                            <tr *ngFor="let move of moves" >
+                                <td>{{ move.move.name }}</td>
+                                <td>{{ move.version.level_learned_at }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="d-flex justify-content-center align-items-center bg-white border rounded-bottom w-100">
+                    <td class="flex-fill m-2 d-flex align-items-center justify-content-center">
+                        <select id="type-select"
+                                class="form-control border rounded-pill m-2"
+                                name="learnset"
+                                [(ngModel)]="learnset"
+                                (ngModelChange)="setMoves()">
+                        
+                        <option value="undefined" selected disabled>
+                            <span>Learnset</span>
+                        </option>
+                        <option *ngFor="let version of versionGroups"
+                                [ngValue]="version">
+                            {{ version.name }}
+                        </option>
+                        
+                    </select>
+                    </td>
+                </div>
+            </div>
+        </div>
+        <div class="col-5 d-flex justify-content-center align-items-center">
+            <div class="p-3 rounded m-2 row d-flex align-items-center justify-content-center shadow" style="background-color: #0FD64F;">
+                <div class="d-flex justify-content-center align-items-center flex-column">
+                    <div class="d-flex inline-flex justify-content-center align-items-center">
+                        <div class="m-3 py-2 px-4 rounded bg-white d-flex inline-flex justify-content-center align-items-center">
+                            <span class="mx-2">Types: </span>
+                            <div *ngFor="let pkmnType of getTypes()" class="rounded-pill border shadow-sm m-1 px-3 py-1">
+                                {{ formatName( pkmnType.type.name ) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex inline-flex align-items-center justify-content-center">
+                        <div class="m-3 py-1 px-3 d-flex inline-flex justify-content-center align-items-center rounded bg-white">
+                            <span class="mx-2" >Height: </span>
+                            {{ getHeight() }}
+                        </div>
+                        <div class="m-3 py-1 px-3 d-flex inline-flex justify-content-center align-items-center rounded bg-white">
+                            <span class="mx-2" >Weight: </span>
+                            {{ ( pokemon.weight / 4.536 ).toFixed( 2 ) }} lbs
+                        </div>
+                    </div>
+                    <div class="m-3 d-flex inline-flex justify-content-center align-items-center rounded bg-white">
+                        <div class="px-3 py-1 d-flex inline-flex justify-content-center align-items-center rounded bg-white">
+                            <span class="mx-2" >Base Experience Yield: </span>
+                            {{ pokemon.base_experience }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div id="background"></div>
+
+<div id="login-page" class="d-flex justify-content-center">
+    <form id="login-form" class="position-absolute rounded shadow m-5">
+        <div id="login-form-title" class="charcoal px-4 py-3">
+            <h3>Enter the Team Builder</h3>
+        </div>
+
+        <div id="login-form-body" class="davys-grey-gradient p-4">
+            <div>
+                <div class="form-group mb-2 p-2">
+                    <label for="username" class="sr-only">Username</label>
+                    <input type="text" class="form-control" name="username" placeholder="username" [(ngModel)]="username">
+                </div>
+
+                <div class="form-group mb-2 p-2">
+                    <label for="password" class="sr-only">Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="password" [(ngModel)]="password">
+                </div>
+            </div>
+
+            <button type="submit" (click)="login()" class="btn btn-primary btn-sm p-2 mt-2">
+                Login
+                <i class="glyphicon glyphicon-chevron-right"></i>
+            </button>
+        </div>
+
+        <div *ngIf="error != undefined">
+            <span>{{ error }}</span>
+        </div>
+    </form>
+</div>

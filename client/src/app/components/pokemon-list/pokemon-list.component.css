@@ -1,0 +1,16 @@
+.tableFixHead          { overflow: auto; height: 65vh; width: 100%; }
+.tableFixHead thead th { position: sticky; top: 0; }
+.tableFixHead tbody th { position: sticky; left: 0; }
+
+/* Just common table stuff. Really. */
+table  { border-collapse: collapse; width: 100%; margin: 0; }
+th, td { padding: 8px 16px; }
+th     { background:#eee; }
+
+.prev-btn, .next-btn {
+    color:aliceblue;
+}
+
+.list-row:hover {
+    cursor: pointer;
+}
